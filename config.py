@@ -4,8 +4,8 @@ from web3 import Web3
 
 class Connect:
     def __init__(self):
-        bsc = "https://bsc-dataseed.binance.org/"
-        self.web3 = Web3(Web3.HTTPProvider(bsc))
+        pls = "https://rpc.v2b.testnet.pulsechain.com"
+        self.web3 = Web3(Web3.HTTPProvider(pls))
 
 
         self.db = Database()
