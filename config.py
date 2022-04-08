@@ -19,7 +19,7 @@ class Connect:
 
         else:
 
-            print("Can't find active address at database, insert you bsc address here...")
+            print("Can't find active address at database, insert you pls address here...")
 
             while True:
 
