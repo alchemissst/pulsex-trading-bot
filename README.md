@@ -1,4 +1,4 @@
-﻿# PulseX trading bot
+﻿# PulseX Trading Bot
 
 Simple python trading bot for direct swaps with PulseX on the Pulsechain blockchain.
 
@@ -14,8 +14,8 @@ Simple python trading bot for direct swaps with PulseX on the Pulsechain blockch
 
 # Quick Start
 
-- Create bsc address and get it's keys
-- Insert bsc address and private key inside of programm
+- Create pls address and get it's keys
+- Insert pls address and private key inside of programm
 - transfer some WPLS and PLS at your address
 - Start main.py
 
