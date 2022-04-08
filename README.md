@@ -1,6 +1,6 @@
 ﻿# PulseX trading bot
 
-Simple python trading bot for direct swaps with PulseX
+Simple python trading bot for direct swaps with PulseX on the Pulsechain blockchain.
 
 Use this bot at your own risk, don't try to trade with real money before making your own strategy, this is just a showcase of possible way to trade with PulseX.
 
