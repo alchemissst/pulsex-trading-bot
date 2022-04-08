@@ -1,13 +1,13 @@
-﻿# Pancakeswap trading bot
+﻿# PulseX trading bot
 
-Simple python trading bot for direct swaps with Pancakeswap
+Simple python trading bot for direct swaps with PulseX
 
-Use this bot at your own risk, don't try to trade with real money before making your own strategy, this is just a showcase of possible way to trade with pancakeswap.
+Use this bot at your own risk, don't try to trade with real money before making your own strategy, this is just a showcase of possible way to trade with PulseX.
 
 
 
 # Features
-- Direct requests to Pancakeswap router based on RSI/price calculation
+- Direct requests to PulseX router based on RSI/price calculation
 - Real time monitoring of trades
 - Coingecko API basic setup
 
@@ -15,7 +15,7 @@ Use this bot at your own risk, don't try to trade with real money before making 
 
 - Create bsc address and get it's keys
 - Insert bsc address and private key inside of programm
-- transfer some WBNB and BNB at your address
+- transfer some WPLS and PLS at your address
 - Start main.py
 
 
