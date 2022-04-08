@@ -16,7 +16,7 @@ class Main:
         self.db = Database()
         self.gecko = Gecko()
         self.connection.make_connection()
-        bsc = "https://bsc-dataseed.binance.org/"
+        pls = "https://rpc.v2b.testnet.pulsechain.com/"
         self.web3 = Web3(Web3.HTTPProvider(bsc))
         #If your main.py process crashes with error, trade.py will continue on cycling through, make sure to close opened console
         subprocess.Popen('start /wait python trade.py', shell=True)
@@ -106,13 +106,13 @@ class Main:
         except Exception as e:
 
             print(e)
-            print("Couldn't get data from coingecko, pls try agian later...")
+            print("Couldn't get data from coingecko, please try agian later...")
             sys.exit()
 
         coin_info = json.loads(coin_info.text)
         if 'error' in coin_info:
 
-            print("Couldn't get data from coingecko, pls check contract address...")    
+            print("Couldn't get data from coingecko, please check contract address...")    
             sys.exit()
 
         name = coin_info['name']
@@ -121,7 +121,7 @@ class Main:
         usd_price = coin_info['market_data']['current_price']['usd']
         print('Name: ',name,';Current price in bnb: ',bnb_price,';Current price in usd: ',usd_price,';\n')
         print('Pls choose how much wbnb to use in trade, current WBNB balance is:', self.get_wbnb_balance())
-        trade_amount = input('WBNB amount to trade with: ')
+        trade_amount = input('WPLS amount to trade with: ')
         print('Choose which trade method to use:')
         trade_method = input('1. RSI less 2. RSI greater 3. Price less 4. Price greater')
         
@@ -151,7 +151,7 @@ class Main:
 
     def get_wbnb_balance(self):
 
-        #wraped BNB abi
+        #wraped PLS abi
         wbnb_abi = '[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"guy","type":"address"},{"name":"wad","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"src","type":"address"},{"name":"dst","type":"address"},{"name":"wad","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"wad","type":"uint256"}],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"dst","type":"address"},{"name":"wad","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"deposit","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"src","type":"address"},{"indexed":true,"name":"guy","type":"address"},{"indexed":false,"name":"wad","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"src","type":"address"},{"indexed":true,"name":"dst","type":"address"},{"indexed":false,"name":"wad","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"dst","type":"address"},{"indexed":false,"name":"wad","type":"uint256"}],"name":"Deposit","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"src","type":"address"},{"indexed":false,"name":"wad","type":"uint256"}],"name":"Withdrawal","type":"event"}]'
         wbnb_contract = self.web3.eth.contract('0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c' , abi=wbnb_abi)
         wbnb_balance = self.web3.fromWei(wbnb_contract.functions.balanceOf(self.db.get_address()[0]).call(),'ether')
