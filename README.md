@@ -37,4 +37,4 @@ Simple python trading bot for direct swaps with PulseX on the Pulsechain blockch
 - [SQLite python library documentaion](https://docs.python.org/3/library/sqlite3.html "SQLite python library documentaion python library documentaion")
 
 
-If you find this helpfull you can support me by registering with Binance ref link: https://accounts.binance.com/en/register?ref=TVUOOEYC
+
