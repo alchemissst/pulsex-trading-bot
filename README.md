@@ -14,8 +14,8 @@ Simple python trading bot for direct swaps with PulseX on the Pulsechain blockch
 
 # Quick Start
 
-- Create pls address and get it's keys
-- Insert pls address and private key inside of program
+- Create pls address and get it's private key
+- Insert pls address and private key inside of the program
 - Transfer some WPLS and PLS to your address
 - Start main.py
 
