@@ -9,7 +9,7 @@ class Trade:
         self.db = Database()
         self.connection = Connect()
         self.gecko = Gecko()
-        self.web3 = Web3(Web3.HTTPProvider('https://rpc.v2b.testnet.pulsechain.com/'))
+        self.web3 = Web3(Web3.HTTPProvider('https://rpc.v4.testnet.pulsechain.com'))
         self.check_all_trades()
 
     def check_all_trades(self):
@@ -79,9 +79,9 @@ class Trade:
         (int(time.time()) + 10000)
         ).buildTransaction({
         'from': user_addr,
-        'value': self.web3.toWei(amount,'ether'),#WBNB AMOUNT TO SWAP FROM
-        'gas': 250000,
-        'gasPrice': self.web3.toWei('5','gwei'),
+        'value': self.web3.toWei(amount,'ether'),#WPLS AMOUNT TO SWAP FROM
+        'gas': 850000,
+        'gasPrice': self.web3.toWei('550','gwei'),
         'nonce': nonce,
         })
         signed_txn = self.web3.eth.account.sign_transaction(pulsex2_txn, private_key=user_key)
